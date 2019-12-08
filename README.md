@@ -8,7 +8,7 @@ We used Django, a web-application tools in python which can manage import, modif
 
 
 ## DataSet
-In this project,[**2018 Central Park Squirrel Census**](https://data.cityofnewyork.us/Environment/2018-Central-Park-Squirrel-Census-Squirrel-Data/vfnx-vebw) dataset, published by [**Squirrel Census**](https://www.thesquirrelcensus.com/) was used to conduct this project.  
+In this project,[**2018 Central Park Squirrel Census**](https://data.cityofnewyork.us/Environment/2018-Central-Park-Squirrel-Census-Squirrel-Data/vfnx-vebw) dataset published by [**Squirrel Census**](https://www.thesquirrelcensus.com/) was used.  
 This data set contains data 3,023 sightings, including location coordinates, age, primary and so on. 
 
 
