@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, DeleteView
+from django.db.models import Avg, Max, Min, Count
 
 from .models import Squirrel
 from .forms import SquirrelForm
@@ -13,7 +14,7 @@ from .forms import SquirrelForm
 def list_of_squirrels(request):
 	list_squirrels = Squirrel.objects.all()
 	context = {'squirrels': list_squirrels}
-	return render(request, 'sighting/list_squirrels.html', context)
+	return render(request, 'sightings/list_squirrel.html', context)
 
 def edit_squirrel(request, squirrel_id):
 	squirrel = get_object_or_404(Squirrel, Unique_Squirrel_ID=squirrel_id)
@@ -21,23 +22,40 @@ def edit_squirrel(request, squirrel_id):
 		form = SquirrelForm(request.POST, instance=squirrel)
 		if form.is_valid():
 			form.save()
-			return redirect(f'/sighting/{squirrel_id}')
+			return redirect(f'/sightings/{squirrel_id}')
 	else:
 		form = SquirrelForm(instance=squirrel)
 	context ={
 		'form':form
 			}
-	return render(request, 'sighting/edit.html', context)
+	return render(request, 'sightings/edit.html', context)
 
 def add_squirrel(request):
 	if request.method=='Post':
 		form = SquirrelForm(request.POST, instance=squirrel)
 		if form.is_valid():
 			form.save()
-			return redirect(f'/sighting/')
+			return redirect(f'/sightings/')
 	else:
 		form = SquirrelForm()
 	context ={
 		'form':form
 			}
-	return render(request, 'sighting/add_squirrel.html', context)
+	return render(request, 'sightings/add_squirrel.html', context)
+
+def stats(request):
+	squirrels = Squirrel.objects.all()
+	total = len(squirrels)
+	lattitude = squirrels.aggregate(minimum=Min('Latitude'),maximum=Max('Latitude'))
+	longitude = squirrels.aggregate(minimum=Min('Latitude'),maximum=Max('Latitude'))
+	primary_fur_color = squirrels.values_list('Primary_Fur_Color').annotate(Count('Primary_Fur_Color'))
+	running = squirrels.values_list('Running').annotate(Count('Running'))
+	shift = squirrels.values_list('Shift').annotate(Count('Shift'))
+	context = {'total': total,
+		'lattitude': lattitude,
+		'longitude': longitude,
+		'primary_fur_color': primary_fur_color,
+		'running': running,
+		'shift': shift,
+		}
+	return render(request, 'sightings/stats.html', context)
