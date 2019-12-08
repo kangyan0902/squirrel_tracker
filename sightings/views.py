@@ -47,7 +47,7 @@ def stats(request):
 	squirrels = Squirrel.objects.all()
 	total = len(squirrels)
 	lattitude = squirrels.aggregate(minimum=Min('Latitude'),maximum=Max('Latitude'))
-	longitude = squirrels.aggregate(minimum=Min('Latitude'),maximum=Max('Latitude'))
+	longitude = squirrels.aggregate(minimum=Min('Longitude'),maximum=Max('Longitude'))
 	primary_fur_color = squirrels.values_list('Primary_Fur_Color').annotate(Count('Primary_Fur_Color'))
 	running = squirrels.values_list('Running').annotate(Count('Running'))
 	shift = squirrels.values_list('Shift').annotate(Count('Shift'))
