@@ -28,23 +28,8 @@ python manage.py export_squirrel_data /path/to/file.csv
 ## API
 
 ### Map View    
-[Map View](https:)   
+[Map View](https://my-project1-254718.appspot.com/map/)   
 
-### Squirrel Lists View   
-[Lists View](https:)
-
-### Squirrel Update View   
-[Update View](https:)  
-
- 
-### Squirrel Create View   
-[Create View](https://)
-
-### Squirrel Delete View   
-[Delete View](https://)
-
-### Squirrel Stats View   
-[Stats View](https:)
 
 ## Dependencies
 - [Django](https://www.djangoproject.com)
