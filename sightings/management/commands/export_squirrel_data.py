@@ -1,6 +1,7 @@
 from django.core.management.base import BaseCommand, CommandError
-from sighting.models import Squirrel
+from sightings.models import Squirrel
 from django.apps import apps
+import csv
 
 class Command(BaseCommand):
     help = 'exports all information to csv files'
@@ -12,11 +13,11 @@ class Command(BaseCommand):
         with open(kwargs['path'], 'w', newline='') as csvfile:
             attributes = ['Latitude', 
             			'Longitude', 
-            			'Unique_Squirrel_id', 
+            			'Unique_Squirrel_ID', 
             			'Shift', 
             			'Date', 
             			'Age', 
-            			'Fur_Color', 
+            			'Primary_Fur_Color', 
             			'Location',
                         'Specific_Location',
                         'Running',
@@ -34,6 +35,6 @@ class Command(BaseCommand):
                         'Indifferent',
                         'Runs_From']
             writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
-            writer.writerow(names)
+            writer.writerow(attributes)
             for row in Squirrel.objects.all():
                 writer.writerow([getattr(row, attribute) for attribute in attributes])
