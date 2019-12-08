@@ -8,7 +8,7 @@ We used Django, a web-application tools in python which can manage import, modif
 
 
 ## DataSet
-In this project,[**2018 Central Park Squirrel Census**](https://data.cityofnewyork.us/Environment/2018-Central-Park-Squirrel-Census-Squirrel-Data/vfnx-vebw) dataset, published by [**Squirrel Census**](https://www.thesquirrelcensus.com/) was used to conduct this project.  
+In this project,[**2018 Central Park Squirrel Census**](https://data.cityofnewyork.us/Environment/2018-Central-Park-Squirrel-Census-Squirrel-Data/vfnx-vebw) dataset published by [**Squirrel Census**](https://www.thesquirrelcensus.com/) was used.  
 This data set contains data 3,023 sightings, including location coordinates, age, primary and so on. 
 
 
@@ -28,23 +28,8 @@ python manage.py export_squirrel_data /path/to/file.csv
 ## API
 
 ### Map View    
-[Map View](https:)   
+[Map View](https://my-project1-254718.appspot.com/map/)   
 
-### Squirrel Lists View   
-[Lists View](https:)
-
-### Squirrel Update View   
-[Update View](https:)  
-
- 
-### Squirrel Create View   
-[Create View](https://)
-
-### Squirrel Delete View   
-[Delete View](https://)
-
-### Squirrel Stats View   
-[Stats View](https:)
 
 ## Dependencies
 - [Django](https://www.djangoproject.com)
