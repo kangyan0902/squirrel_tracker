@@ -30,6 +30,17 @@ python manage.py export_squirrel_data /path/to/file.csv
 ### Map View    
 [Map View](https://my-project1-254718.appspot.com/map/)   
 
+### Sightings 
+[Sightings](https://my-project1-254718.appspot.com/sightings/)
+
+### Stats of squirrels
+[Stats of squirrels](https://my-project1-254718.appspot.com/sightings/stats)
+
+### Add squirrels
+[Add squirrels](https://my-project1-254718.appspot.com/sightings/add/)
+
+### Edit a specific squirrel
+[Edit a specific squirrel](https://my-project1-254718.appspot.com/sightings/37F-PM-1014-03/)
 
 ## Dependencies
 - [Django](https://www.djangoproject.com)
