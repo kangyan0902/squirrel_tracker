@@ -32,7 +32,7 @@ def edit_squirrel(request, squirrel_id):
 
 def add_squirrel(request):
 	if request.method=='Post':
-		form = SquirrelForm(request.POST, instance=squirrel)
+		form = SquirrelForm(request.POST)
 		if form.is_valid():
 			form.save()
 			return redirect(f'/sightings/')
@@ -48,9 +48,9 @@ def stats(request):
 	total = len(squirrels)
 	lattitude = squirrels.aggregate(minimum=Min('Latitude'),maximum=Max('Latitude'))
 	longitude = squirrels.aggregate(minimum=Min('Longitude'),maximum=Max('Longitude'))
-	primary_fur_color = squirrels.values_list('Primary_Fur_Color').annotate(Count('Primary_Fur_Color'))
-	running = squirrels.values_list('Running').annotate(Count('Running'))
-	shift = squirrels.values_list('Shift').annotate(Count('Shift'))
+	primary_fur_color =list(squirrels.values_list('Primary_Fur_Color').annotate(Count('Primary_Fur_Color')))
+	running = list(squirrels.values_list('Running').annotate(Count('Running')))
+	shift = list(squirrels.values_list('Shift').annotate(Count('Shift')))
 	context = {'total': total,
 		'lattitude': lattitude,
 		'longitude': longitude,
